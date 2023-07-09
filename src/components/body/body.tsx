@@ -6,22 +6,19 @@ import { TicketInterface } from "../../interfaces";
 const DUMMY_TICKETS: TicketInterface[] = [
   {
     name: "Condor",
-    deadline: "Test deadline",
-    status: "green",
-    timestamp: new Date()
+    status: true,
+    deadline: new Date()
   },
   {
     name: "Miat",
     message: "Test message",
-    deadline: "Test deadline",
-    status: "yellow",
-    timestamp: new Date()
+    status: false,
+    deadline: new Date()
   },
   {
     name: "Sas",
-    deadline: "Test deadline",
-    status: "red",
-    timestamp: new Date()
+    status: true,
+    deadline: new Date()
   }
 ];
 
