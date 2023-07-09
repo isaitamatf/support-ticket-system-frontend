@@ -4,7 +4,7 @@ type Props = {
   status: boolean
 }
 
-export const ToogleSwitch: React.FC<Props> = ({status}) => {
+export const ToogleSwitchComponent: React.FC<Props> = ({status}) => {
   return (
     <div className="sts-toggle-switch">
       <input type="checkbox" checked={status} />

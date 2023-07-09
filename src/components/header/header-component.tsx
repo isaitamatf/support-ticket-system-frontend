@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../assets/logo.svg"
 
-export function Header() {
+export function HeaderComponent() {
   return (
     <div className="sts-header">
       <div className="sts-header-img">

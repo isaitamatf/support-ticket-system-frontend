@@ -1,6 +1,6 @@
-export { Body } from "./body/body";
-export { Header } from "./header/header";
-export { List } from "./list/list";
-export { Status } from "./status/status";
-export { Ticket } from "./ticket/ticket";
-export { ToogleSwitch } from "./toggleSwitch/toggleSwitch";
+export { BodyComponent } from "./body/body-component";
+export { HeaderComponent } from "./header/header-component";
+export { ListComponent } from "./list/list-component";
+export { StatusComponent } from "./status/status-component";
+export { TicketComponent } from "./ticket/ticket-component";
+export { ToogleSwitchComponent } from "./toggleSwitch/toggle-switch-component";

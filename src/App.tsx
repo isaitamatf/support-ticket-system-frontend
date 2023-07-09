@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.scss";
 
-import { Body, Header } from "./components";
+import { BodyComponent, HeaderComponent } from "./components";
 
 function App() {
   return (
     <>
-      <Header />
-      <Body />
+      <HeaderComponent />
+      <BodyComponent />
     </>
   );
 }

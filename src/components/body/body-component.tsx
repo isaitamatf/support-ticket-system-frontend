@@ -1,6 +1,6 @@
 import React from "react";
 
-import { List } from "../../components";
+import { ListComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 
 const DUMMY_TICKETS: TicketInterface[] = [
@@ -22,10 +22,10 @@ const DUMMY_TICKETS: TicketInterface[] = [
   }
 ];
 
-export function Body() {
+export function BodyComponent() {
   return (
     <div className="sts-body">
-      <List tickets={DUMMY_TICKETS} />
+      <ListComponent tickets={DUMMY_TICKETS} />
     </div>
   )
 } 
