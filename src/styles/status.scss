@@ -1,0 +1,30 @@
+.sts-status {
+  border-radius: 50%;
+  padding: 2px;
+  border-width: 2px;
+  border-style: solid;
+  margin-left: 4px;
+  > .sts-status-circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+  }
+}
+.sts-status.green {
+  border-color: #01C853;
+  > .sts-status-circle {
+    background-color: #01C853;
+  }
+}
+.sts-status.yellow {
+  border-color: #FEC107;
+  >.sts-status-circle {
+    background-color: #FEC107;
+  }
+}
+.sts-status.red {
+  border-color: #D74315;
+  >.sts-status-circle {
+    background-color: #D74315;
+  }
+}
