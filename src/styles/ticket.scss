@@ -1,0 +1,40 @@
+@use "colors";
+
+.sts-ticket {
+  margin: 8px 0;
+  background-color: colors.$bg-color;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  > .sts-ticket-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4px;
+    > .sts-ticket-header-element {
+      display: flex;
+      flex: 1;
+      > span {
+        text-transform: uppercase;
+      }
+    }
+  }
+  >.sts-ticket-container {
+    width: 100%;
+    display: flex;
+    margin-top: 4px;
+    > textarea {
+      display: flex;
+      resize: none;
+      width: 100%;
+      border-radius: 8px;
+      padding: 8px;
+      border: 0;
+      outline: 0;
+      min-height: 48px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+}
