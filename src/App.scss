@@ -1,0 +1,11 @@
+@import url('./styles/index.scss');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

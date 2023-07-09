@@ -1,0 +1,33 @@
+@use 'colors';
+
+.sts-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 60px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  >.sts-header-img,
+  >.sts-header-span {
+    display: flex;
+    height: 100%;
+    padding: 0 8px;
+    align-items: center;
+  }
+  >.sts-header-img {
+    > img {
+      width: 32px;
+    }
+  }
+
+  >.sts-header-span {
+    > span {
+      color: colors.$primary-color;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+    }
+  }
+}
