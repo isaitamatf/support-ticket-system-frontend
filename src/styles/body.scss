@@ -8,4 +8,9 @@
   border-width: 1px;
   border-style: solid;
   border-color: colors.$grey-color;
+  >.sts-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 }

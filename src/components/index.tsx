@@ -1,4 +1,5 @@
 export { BodyComponent } from "./body/body-component";
+export { ButtonComponent } from "./button/button-component";
 export { HeaderComponent } from "./header/header-component";
 export { ListComponent } from "./list/list-component";
 export { StatusComponent } from "./status/status-component";

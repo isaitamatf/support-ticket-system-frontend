@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ListComponent } from "..";
+import { ListComponent, ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 
 const DUMMY_TICKETS: TicketInterface[] = [
@@ -26,6 +26,10 @@ export function BodyComponent() {
   return (
     <div className="sts-body">
       <ListComponent tickets={DUMMY_TICKETS} />
+      <div className="sts-row">
+        <ButtonComponent text="Create Randomly"/>
+        <ButtonComponent text="Create New"/>
+      </div>
     </div>
   )
 } 

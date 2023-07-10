@@ -1,0 +1,20 @@
+@use "colors";
+
+.sts-button {
+  margin: 0 6px;
+  > button {
+    background-color: #3B8EDE;
+    color: #FFF;
+    border: 0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    > span {
+      margin-right: 8px;
+    }
+  }
+}
+
+.sts-button:last-child {
+  margin-right: 0;
+}
