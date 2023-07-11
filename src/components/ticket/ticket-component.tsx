@@ -56,7 +56,7 @@ export const TicketComponent: React.FC<Props> = ({ticket, index, updateTicket}) 
         </div>
       </div>
       <div className="sts-ticket-container">
-        <textarea value={issue} placeholder="Message" />
+        <textarea value={issue} placeholder="Message" disabled />
       </div>
     </div>
   ) : (

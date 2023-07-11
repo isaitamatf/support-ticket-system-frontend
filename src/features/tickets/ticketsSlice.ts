@@ -9,17 +9,30 @@ import { TicketInterface } from "../../interfaces";
  * @returns {Array}
  */
 export const getTickets: any = createAsyncThunk("tickets/getTickets", async () => {
-  const response = await axios.get(`${API_URL}/tickets`);
-  return response.data;
+  try {
+    const response = await axios.get(`${API_URL}/tickets`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getTickets -> ', error);
+  }
 });
 
 export const patchTicket: any = createAsyncThunk("tickets/patchTicket", async (ticketChanged: TicketInterface) => {
-  const { _id } = ticketChanged;
   try {
+    const { _id } = ticketChanged;
     const response = await axios.patch(`${API_URL}/tickets/${_id}`, ticketChanged);
     return response.data;
   } catch (error) {
     console.error('Error patchTicket -> ', error);
+  }
+});
+
+export const postTicket: any = createAsyncThunk("tickets/postTicket", async (newTicket: TicketInterface) => {
+  try {
+    const response = await axios.post(`${API_URL}/tickets`, newTicket);
+    return response.data;
+  } catch (error) {
+    console.error('Error postTicket -> ', error);
   }
 });
 
@@ -42,6 +55,9 @@ export const ticketsSlice = createSlice({
           return ticket;
         })
         state.tickets = ticketsUpdated;
+      })
+      .addCase(postTicket.fulfilled, (state, action) => {
+        state.tickets = state.tickets.concat(action.payload);
       });
   },
 });

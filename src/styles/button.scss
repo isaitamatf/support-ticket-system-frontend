@@ -13,6 +13,9 @@
       margin-right: 8px;
     }
   }
+  > button:hover {
+    background-color: darken(#3B8EDE, 20%);
+  }
 }
 
 .sts-button:last-child {

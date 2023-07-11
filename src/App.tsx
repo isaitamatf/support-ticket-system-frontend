@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   getTickets,
   patchTicket,
+  postTicket,
   selectAllTickets,
 } from "./features/tickets/ticketsSlice";
 
@@ -25,6 +26,10 @@ function App() {
     dispatch(patchTicket(ticketChanged));
   };
 
+  const createTicket = (newTicket: TicketInterface) => {
+    dispatch(postTicket(newTicket));
+  };
+
   useEffect(() => {
     fetchTickets();
   }, []);
@@ -32,7 +37,7 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <BodyComponent tickets={tickets} updateTicket={updateTicket} />
+      <BodyComponent tickets={tickets} updateTicket={updateTicket} createTicket={createTicket} />
     </>
   );
 }
