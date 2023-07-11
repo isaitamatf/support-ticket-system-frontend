@@ -1,6 +1,7 @@
 export interface TicketInterface {
-  name: string,
-  message?: string,
-  deadline: Date,
-  status: boolean
+  _id: string,
+  client: string,
+  issue?: string,
+  status: "open" | "closed",
+  deadline: Date
 }

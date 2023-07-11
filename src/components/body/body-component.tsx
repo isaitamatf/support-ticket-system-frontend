@@ -5,26 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ListComponent, ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 
-const DUMMY_TICKETS: TicketInterface[] = [
-  {
-    name: "Condor",
-    status: true,
-    deadline: new Date()
-  },
-  {
-    name: "Miat",
-    message: "Test message",
-    status: false,
-    deadline: new Date()
-  },
-  {
-    name: "Sas",
-    status: true,
-    deadline: new Date()
-  }
-];
+type BodyComponentProps = {
+  tickets: TicketInterface[]
+};
 
-export function BodyComponent() {
+export const BodyComponent: React.FC<BodyComponentProps> = ({tickets}) => {
   return (
     <div className="sts-body">
       <div className="sts-row">
@@ -35,11 +20,11 @@ export function BodyComponent() {
           <span>Timeline</span>
         </div>
       </div>
-      <ListComponent tickets={DUMMY_TICKETS} />
+      <ListComponent tickets={tickets} />
       <div className="sts-row">
-        <ButtonComponent text="Create Randomly"/>
-        <ButtonComponent text="Create New"/>
+        <ButtonComponent text="Create Randomly" />
+        <ButtonComponent text="Create New" />
       </div>
     </div>
-  )
-} 
+  );
+}; 

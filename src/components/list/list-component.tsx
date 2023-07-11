@@ -8,15 +8,14 @@ type Props = {
 }
 
 export const ListComponent: React.FC<Props> = ({tickets})  => {
-
   const showTickets = () => {
     return tickets.map((ticket: TicketInterface, index: number) => {
+      const { _id } = ticket;
       return ticket ? (
-        <TicketComponent index={index} ticket={ticket} key={index} />
+        <TicketComponent ticket={ticket} index={index} key={_id} />
       ) : <></>
     })
   }
-
   return tickets && tickets.length > 0 ? (
     <div className="sts-list">
       {showTickets()}
