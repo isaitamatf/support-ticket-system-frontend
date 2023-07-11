@@ -5,12 +5,13 @@ import { TicketInterface } from "../../interfaces";
 import { ToogleSwitchComponent, StatusComponent } from "..";
 
 type Props = {
-  ticket: TicketInterface,
-  index: number
-}
+  ticket: TicketInterface;
+  index: number;
+  updateTicket: (ticketChanged: TicketInterface) => void;
+};
 
-export const TicketComponent: React.FC<Props> = ({ticket, index}) => {
-  const { 
+export const TicketComponent: React.FC<Props> = ({ticket, index, updateTicket}) => {
+  const {
     client,
     issue,
     status,
@@ -27,17 +28,30 @@ export const TicketComponent: React.FC<Props> = ({ticket, index}) => {
     return statusColor;
   }
 
+  const onChangeToggleSwitch = () => {
+    const ticketChanged: TicketInterface = {
+      ...ticket,
+      status: status === "open" ? "closed" : "open"
+    };
+    updateTicket(ticketChanged);
+  };
+
   return ticket ? (
     <div className="sts-ticket">
       <div className="sts-ticket-header">
         <div className="sts-ticket-header-element">
-          <span>{index + 1}. {client}</span>
+          <span>
+            {index + 1}. {client}
+          </span>
         </div>
         <div className="sts-ticket-header-element">
           <span>{dayjs(deadline).format("DD/MM/YYYY")}</span>
         </div>
         <div className="sts-ticket-header-element">
-          <ToogleSwitchComponent status={status} />
+          <ToogleSwitchComponent
+            status={status}
+            onChangeToggleSwitch={onChangeToggleSwitch}
+          />
           <StatusComponent status={checkStatusColor()} />
         </div>
       </div>
@@ -45,5 +59,7 @@ export const TicketComponent: React.FC<Props> = ({ticket, index}) => {
         <textarea value={issue} placeholder="Message" />
       </div>
     </div>
-  ) : <></>
+  ) : (
+    <></>
+  );
 } 

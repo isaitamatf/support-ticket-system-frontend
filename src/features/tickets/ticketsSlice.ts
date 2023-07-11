@@ -2,14 +2,25 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { API_URL } from "../../constants";
+import { TicketInterface } from "../../interfaces";
 
 /**
  * @description Function that makes the API call
  * @returns {Array}
  */
-export const fetchTickets: any = createAsyncThunk("tickets/fetchTickets", async () => {
+export const getTickets: any = createAsyncThunk("tickets/getTickets", async () => {
   const response = await axios.get(`${API_URL}/tickets`);
   return response.data;
+});
+
+export const patchTicket: any = createAsyncThunk("tickets/patchTicket", async (ticketChanged: TicketInterface) => {
+  const { _id } = ticketChanged;
+  try {
+    const response = await axios.patch(`${API_URL}/tickets/${_id}`, ticketChanged);
+    return response.data;
+  } catch (error) {
+    console.error('Error patchTicket -> ', error);
+  }
 });
 
 export const ticketsSlice = createSlice({
@@ -20,14 +31,17 @@ export const ticketsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchTickets.pending, (state, action) => {
-        // LOADING
-      })
-      .addCase(fetchTickets.fulfilled, (state, action) => {
+      .addCase(getTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
       })
-      .addCase(fetchTickets.rejected, (state, action) => {
-        // FAILED
+      .addCase(patchTicket.fulfilled, (state: any, action) => {
+        const ticketsUpdated = state.tickets.map((ticket: any) => {
+          if (ticket._id === action.payload._id) {
+            ticket = action.payload;
+          }
+          return ticket;
+        })
+        state.tickets = ticketsUpdated;
       });
   },
 });

@@ -2,31 +2,37 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  fetchTickets,
+  getTickets,
+  patchTicket,
   selectAllTickets,
 } from "./features/tickets/ticketsSlice";
 
 import "./App.scss";
 
 import { BodyComponent, HeaderComponent } from "./components";
+import { TicketInterface } from "./interfaces"
 
 function App() {
   const dispatch = useDispatch();
   // State variable where we store the tickets.
   const tickets = useSelector(selectAllTickets);
 
-  const getTickets = () => {
-    dispatch(fetchTickets());
+  const fetchTickets = () => {
+    dispatch(getTickets());
   }
 
+  const updateTicket = (ticketChanged: TicketInterface) => {
+    dispatch(patchTicket(ticketChanged));
+  };
+
   useEffect(() => {
-    getTickets();
+    fetchTickets();
   }, []);
 
   return (
     <>
       <HeaderComponent />
-      <BodyComponent tickets={tickets} />
+      <BodyComponent tickets={tickets} updateTicket={updateTicket} />
     </>
   );
 }

@@ -6,10 +6,11 @@ import { ListComponent, ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 
 type BodyComponentProps = {
-  tickets: TicketInterface[]
+  tickets: TicketInterface[];
+  updateTicket: (ticketChanged: TicketInterface) => void;
 };
 
-export const BodyComponent: React.FC<BodyComponentProps> = ({tickets}) => {
+export const BodyComponent: React.FC<BodyComponentProps> = ({tickets, updateTicket}) => {
   return (
     <div className="sts-body">
       <div className="sts-row">
@@ -20,7 +21,7 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({tickets}) => {
           <span>Timeline</span>
         </div>
       </div>
-      <ListComponent tickets={tickets} />
+      <ListComponent tickets={tickets} updateTicket={updateTicket} />
       <div className="sts-row">
         <ButtonComponent text="Create Randomly" />
         <ButtonComponent text="Create New" />
