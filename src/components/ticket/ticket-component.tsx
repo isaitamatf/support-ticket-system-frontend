@@ -33,11 +33,11 @@ export const TicketComponent: React.FC<Props> = ({
    * @returns {string}
    */
   const checkStatusColor = () => {
-    let statusColor: "green" | "yellow" | "red" = "red";
+    let statusColor: "green" | "yellow" | "red" = "green";
     if (status === "open" && dayjs() < dayjs(deadline)) {
       statusColor = "yellow";
     } else if (status === "open" && dayjs() > dayjs(deadline)) {
-      statusColor = "green";
+      statusColor = "red";
     }
     return statusColor;
   };
