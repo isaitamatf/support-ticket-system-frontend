@@ -1,3 +1,5 @@
+@use "colors";
+
 .sts-toggle-switch {
   position: relative;
   display: inline-block;
@@ -11,11 +13,11 @@
     left: 0;
     right: 1px;
     bottom: 0;
-    background-color: #d8d8d8;
+    background-color: colors.$toggle-switch-bg-color;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 12px;
-    border: 1px solid #b9b9b9;
+    border: 1px solid colors.$toggle-switch-border-color;
   }
 
   > .sts-slider:before {
@@ -25,7 +27,7 @@
     width: 20px;
     right: -1px;
     bottom: -3.5px;
-    background-color: #b9b9b9;
+    background-color: colors.$toggle-switch-border-color;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 50%;
@@ -38,12 +40,12 @@
   }
 
   > input:checked + .sts-slider {
-    background-color: #a4e1da;
+    background-color: colors.$toggle-switch-slider-disabled-color;
     border: 0;
   }
 
   > input:checked + .sts-slider:before {
-    background-color: #46c3b3;
+    background-color: colors.$toggle-switch-slider-enabled-color;
     -webkit-transform: translateX(-20px);
     -ms-transform: translateX(-20px);
     transform: translateX(-20px);

@@ -1,3 +1,5 @@
+@use "colors";
+
 .sts-status {
   border-radius: 50%;
   padding: 2px;
@@ -11,20 +13,20 @@
   }
 }
 .sts-status.green {
-  border-color: #01c853;
+  border-color: colors.$status-green-color;
   > .sts-status-circle {
-    background-color: #01c853;
+    background-color: colors.$status-green-color;
   }
 }
 .sts-status.yellow {
-  border-color: #fec107;
+  border-color: colors.$status-yellow-color;
   > .sts-status-circle {
-    background-color: #fec107;
+    background-color: colors.$status-yellow-color;
   }
 }
 .sts-status.red {
-  border-color: #d74315;
+  border-color: colors.$status-red-color;
   > .sts-status-circle {
-    background-color: #d74315;
+    background-color: colors.$status-red-color;
   }
 }
