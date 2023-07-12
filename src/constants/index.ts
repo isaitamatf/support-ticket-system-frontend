@@ -2,7 +2,8 @@ import dayjs from "dayjs";
 
 export const API_URL = "http://localhost:4000";
 
-export const DATE_FORMAT = "YYYY-MM-DDTHH:mm:ss";
+export const DATE_FORMAT = "YYYY-MM-DD";
+export const TIMESTAMP_FORMAT = "YYYY-MM-DDTHH:mm:ss";
 
 export const INITIAL_STATE = {
   tickets: [],
@@ -30,9 +31,9 @@ export const RANDOM_STATUS = [
 ];
 
 export const RANDOM_DEADLINES = [
-  dayjs().subtract(2, 'day').format(DATE_FORMAT),
-  dayjs().subtract(1, 'day').format(DATE_FORMAT),
-  dayjs().format(DATE_FORMAT),
-  dayjs().add(1, 'day').format(DATE_FORMAT),
-  dayjs().add(2, 'day').format(DATE_FORMAT),
+  dayjs().subtract(2, 'day').format(TIMESTAMP_FORMAT),
+  dayjs().subtract(1, 'day').format(TIMESTAMP_FORMAT),
+  dayjs().format(TIMESTAMP_FORMAT),
+  dayjs().add(1, 'day').format(TIMESTAMP_FORMAT),
+  dayjs().add(2, 'day').format(TIMESTAMP_FORMAT),
 ];

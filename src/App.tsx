@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -10,17 +10,19 @@ import {
 
 import "./App.scss";
 
-import { BodyComponent, HeaderComponent } from "./components";
-import { TicketInterface } from "./interfaces"
+import { BodyComponent, HeaderComponent, ModalComponent } from "./components";
+import { TicketInterface } from "./interfaces";
 
 function App() {
   const dispatch = useDispatch();
   // State variable where we store the tickets.
   const tickets = useSelector(selectAllTickets);
 
+  const [showModal, setShowModal] = useState(false);
+
   const fetchTickets = () => {
     dispatch(getTickets());
-  }
+  };
 
   const updateTicket = (ticketChanged: TicketInterface) => {
     dispatch(patchTicket(ticketChanged));
@@ -34,10 +36,27 @@ function App() {
     fetchTickets();
   }, []);
 
+  const changeModalStatus = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <HeaderComponent />
-      <BodyComponent tickets={tickets} updateTicket={updateTicket} createTicket={createTicket} />
+      <BodyComponent
+        tickets={tickets}
+        updateTicket={updateTicket}
+        createTicket={createTicket}
+        onClickCreateNew={changeModalStatus}
+      />
+      {showModal ? (
+        <ModalComponent
+          onClickButtonClose={changeModalStatus}
+          createTicket={createTicket}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 }

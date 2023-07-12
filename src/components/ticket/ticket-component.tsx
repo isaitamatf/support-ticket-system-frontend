@@ -10,28 +10,27 @@ type Props = {
   updateTicket: (ticketChanged: TicketInterface) => void;
 };
 
-export const TicketComponent: React.FC<Props> = ({ticket, index, updateTicket}) => {
-  const {
-    client,
-    issue,
-    status,
-    deadline
-  } = ticket;
+export const TicketComponent: React.FC<Props> = ({
+  ticket,
+  index,
+  updateTicket,
+}) => {
+  const { client, issue, status, deadline } = ticket;
 
   const checkStatusColor = () => {
     let statusColor: "green" | "yellow" | "red" = "red";
     if (status === "open" && dayjs() < dayjs(deadline)) {
-      statusColor = "yellow"
+      statusColor = "yellow";
     } else if (status === "open" && dayjs() > dayjs(deadline)) {
-      statusColor = "green"
+      statusColor = "green";
     }
     return statusColor;
-  }
+  };
 
   const onChangeToggleSwitch = () => {
     const ticketChanged: TicketInterface = {
       ...ticket,
-      status: status === "open" ? "closed" : "open"
+      status: status === "open" ? "closed" : "open",
     };
     updateTicket(ticketChanged);
   };
@@ -62,4 +61,4 @@ export const TicketComponent: React.FC<Props> = ({ticket, index, updateTicket}) 
   ) : (
     <></>
   );
-} 
+};

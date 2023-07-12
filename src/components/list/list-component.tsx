@@ -8,18 +8,25 @@ type Props = {
   updateTicket: (ticketChanged: TicketInterface) => void;
 };
 
-export const ListComponent: React.FC<Props> = ({tickets, updateTicket})  => {
+export const ListComponent: React.FC<Props> = ({ tickets, updateTicket }) => {
   const showTickets = () => {
     return tickets.map((ticket: TicketInterface, index: number) => {
       const { _id } = ticket;
       return ticket ? (
-        <TicketComponent ticket={ticket} index={index} key={_id} updateTicket={updateTicket} />
-      ) : <></>
-    })
-  }
+        <TicketComponent
+          ticket={ticket}
+          index={index}
+          key={_id}
+          updateTicket={updateTicket}
+        />
+      ) : (
+        <></>
+      );
+    });
+  };
   return tickets && tickets.length > 0 ? (
-    <div className="sts-list">
-      {showTickets()}
-    </div>
-  ) : <></>
-} 
+    <div className="sts-list">{showTickets()}</div>
+  ) : (
+    <></>
+  );
+};
