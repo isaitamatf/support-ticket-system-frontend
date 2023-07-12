@@ -31,6 +31,7 @@ export const ListComponent: React.FC<Props> = ({
         const { _id } = ticket;
         return ticket ? (
           <TicketComponent
+            data-testid="sts-ticket-component"
             ticket={ticket}
             index={index}
             key={_id}
@@ -45,5 +46,9 @@ export const ListComponent: React.FC<Props> = ({
       <></>
     );
   };
-  return <div className="sts-list">{showTickets()}</div>;
+  return (
+    <div className="sts-list" data-testid="sts-list">
+      {showTickets()}
+    </div>
+  );
 };

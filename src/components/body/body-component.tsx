@@ -59,7 +59,7 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
     createTicket(newTicket);
   };
   return (
-    <div className="sts-body">
+    <div className="sts-body" data-testid="sts-body">
       <div className="sts-row">
         <div className="sts-calendar">
           <FontAwesomeIcon icon={faCalendar} color="#0B3B60" />

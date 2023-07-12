@@ -24,10 +24,14 @@ export const ButtonComponent: React.FC<Props> = ({
   disabled,
 }) => {
   return (
-    <div className="sts-button">
+    <div className="sts-button" data-testid="sts-button">
       <button onClick={onClick} disabled={disabled}>
         <span>{text}</span>
-        {showIcon ? <FontAwesomeIcon icon={faArrowRight} /> : <></>}
+        {showIcon ? (
+          <FontAwesomeIcon icon={faArrowRight} data-testid="sts-button-icon" />
+        ) : (
+          <></>
+        )}
       </button>
     </div>
   );

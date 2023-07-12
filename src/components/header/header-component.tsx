@@ -6,7 +6,7 @@ import Logo from "../../assets/logo.svg";
  */
 export const HeaderComponent: React.FC = () => {
   return (
-    <div className="sts-header">
+    <div className="sts-header" data-testid="sts-header">
       <div className="sts-header-img">
         <img alt="Logo" src={Logo} />
       </div>

@@ -16,7 +16,11 @@ export const ToogleSwitchComponent: React.FC<Props> = ({
   onChangeToggleSwitch,
 }) => {
   return (
-    <div className="sts-toggle-switch" onClick={onChangeToggleSwitch}>
+    <div
+      className="sts-toggle-switch"
+      data-testid="sts-toggle-switch"
+      onClick={onChangeToggleSwitch}
+    >
       <input
         type="checkbox"
         checked={status === "open" ? true : false}

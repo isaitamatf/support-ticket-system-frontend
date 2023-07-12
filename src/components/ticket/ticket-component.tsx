@@ -57,7 +57,7 @@ export const TicketComponent: React.FC<Props> = ({
   const onClickRemoveTicket = () => removeTicket(_id);
 
   return ticket ? (
-    <div className="sts-ticket">
+    <div className="sts-ticket" data-testid="sts-ticket">
       <div className="sts-ticket-header">
         <div className="sts-ticket-header-element">
           <span>

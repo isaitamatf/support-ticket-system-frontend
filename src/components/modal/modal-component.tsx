@@ -62,7 +62,7 @@ export const ModalComponent: React.FC<Props> = ({
     createTicket(newTicket);
   };
   return (
-    <div className="sts-modal">
+    <div className="sts-modal" data-testid="sts-modal">
       <div className="sts-modal-container">
         <div className="sts-modal-control">
           <FontAwesomeIcon
