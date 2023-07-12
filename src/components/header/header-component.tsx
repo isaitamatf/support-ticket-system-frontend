@@ -1,7 +1,10 @@
-import React from "react";
 import Logo from "../../assets/logo.svg";
 
-export function HeaderComponent() {
+/**
+ * @description Header Component
+ * @returns {JSX}
+ */
+export const HeaderComponent: React.FC = () => {
   return (
     <div className="sts-header">
       <div className="sts-header-img">
@@ -12,4 +15,4 @@ export function HeaderComponent() {
       </div>
     </div>
   );
-}
+};

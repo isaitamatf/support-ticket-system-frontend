@@ -12,27 +12,46 @@ type Props = {
   createTicket: (newTicket: TicketInterface) => void;
 };
 
+/**
+ * @description Modal component
+ * @param {Function} onClickButtonClose
+ * @param {Function} createTicket
+ * @returns {JSX}
+ */
 export const ModalComponent: React.FC<Props> = ({
   onClickButtonClose,
   createTicket,
 }) => {
+  // State variable for the client name
   const [client, setClient] = useState("");
+  // State variable for the issue message
   const [issue, setIssue] = useState("");
+  // State variable for the status
   const [status, setStatus] = useState("closed");
+  // State variable for the deadline date
   const [deadline, setDeadline] = useState(dayjs().format(DATE_FORMAT));
+  // State variable that disable or enable the save button
   const [saveButtonDisabled, setButtonDisabled] = useState(true);
-
+  // If the form is complete then we will enable the save button
   useEffect(() => {
-    if (client && client.length > 0
-    && issue && issue.length > 0
-    && status && status.length > 0
-    && deadline && deadline.length > 0) {
-      setButtonDisabled(false)
+    if (
+      client &&
+      client.length > 0 &&
+      issue &&
+      issue.length > 0 &&
+      status &&
+      status.length > 0 &&
+      deadline &&
+      deadline.length > 0
+    ) {
+      setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
     }
   }, [client, issue, status, deadline]);
-
+  /**
+   * @description Function that generate a new ticket object and create it
+   */
   const onClickButtonSave = () => {
     const newTicket: TicketInterface = {
       client,
@@ -41,8 +60,7 @@ export const ModalComponent: React.FC<Props> = ({
       deadline: new Date(deadline),
     };
     createTicket(newTicket);
-  }
-
+  };
   return (
     <div className="sts-modal">
       <div className="sts-modal-container">

@@ -1,49 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-import { API_URL } from "../../constants";
+import { getTickets, patchTicket, postTicket, deleteTicket } from "./ticketsThunks";
 import { TicketInterface } from "../../interfaces";
-
-/**
- * @description Function that makes the API call
- * @returns {Array}
- */
-export const getTickets: any = createAsyncThunk("tickets/getTickets", async () => {
-  try {
-    const response = await axios.get(`${API_URL}/tickets`);
-    return response.data;
-  } catch (error) {
-    console.error('Error getTickets -> ', error);
-  }
-});
-
-export const patchTicket: any = createAsyncThunk("tickets/patchTicket", async (ticketChanged: TicketInterface) => {
-  try {
-    const { _id } = ticketChanged;
-    const response = await axios.patch(`${API_URL}/tickets/${_id}`, ticketChanged);
-    return response.data;
-  } catch (error) {
-    console.error('Error patchTicket -> ', error);
-  }
-});
-
-export const postTicket: any = createAsyncThunk("tickets/postTicket", async (newTicket: TicketInterface) => {
-  try {
-    const response = await axios.post(`${API_URL}/tickets`, newTicket);
-    return response.data;
-  } catch (error) {
-    console.error('Error postTicket -> ', error);
-  }
-});
-
-export const deleteTicket: any = createAsyncThunk("tickets/deleteTicket", async (id: string) => {
-  try {
-    const response = await axios.delete(`${API_URL}/tickets/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error deleteTicket -> ', error);
-  }
-});
 
 export const ticketsSlice = createSlice({
   name: "tickets",
@@ -74,7 +32,12 @@ export const ticketsSlice = createSlice({
   },
 });
 
-export const selectAllTickets = (reducer: any) =>
+/**
+ * @description Function that set the tickets data from the store to the state
+ * @param reducer
+ * @returns {TicketInterface[]}
+ */
+export const selectAllTickets = (reducer: any): TicketInterface[] =>
   reducer.ticketsReducer &&
     reducer.ticketsReducer.tickets &&
     reducer.ticketsReducer.tickets.length > 0

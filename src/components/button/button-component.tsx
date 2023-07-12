@@ -9,6 +9,14 @@ type Props = {
   disabled?: boolean;
 };
 
+/**
+ * @description Button component
+ * @param {string} text
+ * @param {Function} onClick
+ * @param {boolean} showIcon
+ * @param {boolean} disabled
+ * @returns {JSX}
+ */
 export const ButtonComponent: React.FC<Props> = ({
   text,
   onClick,

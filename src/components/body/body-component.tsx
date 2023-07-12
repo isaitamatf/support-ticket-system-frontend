@@ -20,6 +20,15 @@ type BodyComponentProps = {
   onClickCreateNew: () => void;
 };
 
+/**
+ * @description Body component
+ * @param {TicketInterface[]} tickets
+ * @param {Function} updateTicket
+ * @param {Function} createTicket
+ * @param {Function} removeTicket
+ * @param {Function} onClickCreateNew
+ * @returns {JSX}
+ */
 export const BodyComponent: React.FC<BodyComponentProps> = ({
   tickets,
   updateTicket,
@@ -27,10 +36,18 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
   removeTicket,
   onClickCreateNew,
 }) => {
+  /**
+   * @description Function that give to us a random number
+   * @param {number} min
+   * @param {number} max
+   * @returns {number}
+   */
   const getRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
-
+  /**
+   * @description Function that generate the new ticket object to create it
+   */
   const onClickCreateRandomly = () => {
     const newStatus = RANDOM_STATUS[getRandomNumber(0, 2)];
     const newTicket: TicketInterface = {
@@ -41,7 +58,6 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
     };
     createTicket(newTicket);
   };
-
   return (
     <div className="sts-body">
       <div className="sts-row">

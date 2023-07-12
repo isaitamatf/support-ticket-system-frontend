@@ -13,14 +13,25 @@ type Props = {
   removeTicket: (id?: string) => void;
 };
 
+/**
+ * @description Ticket component
+ * @param {TicketInterface} ticket
+ * @param {number} index
+ * @param {Function} updateTicket
+ * @param {Function} removeTicket
+ * @returns {JSX}
+ */
 export const TicketComponent: React.FC<Props> = ({
   ticket,
   index,
   updateTicket,
-  removeTicket
+  removeTicket,
 }) => {
   const { _id, client, issue, status, deadline } = ticket;
-
+  /**
+   * @description Function that check which is the correct status
+   * @returns {string}
+   */
   const checkStatusColor = () => {
     let statusColor: "green" | "yellow" | "red" = "red";
     if (status === "open" && dayjs() < dayjs(deadline)) {
@@ -30,7 +41,9 @@ export const TicketComponent: React.FC<Props> = ({
     }
     return statusColor;
   };
-
+  /**
+   * @description Function that change the status of the ticket
+   */
   const onChangeToggleSwitch = () => {
     const ticketChanged: TicketInterface = {
       ...ticket,
@@ -38,10 +51,10 @@ export const TicketComponent: React.FC<Props> = ({
     };
     updateTicket(ticketChanged);
   };
-
-  const onClickRemoveTicket = () => {
-    removeTicket(_id);
-  }
+  /**
+   * @description Function that remove the ticket with the id
+   */
+  const onClickRemoveTicket = () => removeTicket(_id);
 
   return ticket ? (
     <div className="sts-ticket">
