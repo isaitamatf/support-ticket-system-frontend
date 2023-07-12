@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 import {
   getTickets,
@@ -10,6 +11,7 @@ import {
 } from "./features/tickets/ticketsSlice";
 
 import "./App.scss";
+ import "react-toastify/dist/ReactToastify.css";
 
 import { BodyComponent, HeaderComponent, ModalComponent } from "./components";
 import { TicketInterface } from "./interfaces";
@@ -27,14 +29,17 @@ function App() {
 
   const updateTicket = (ticketChanged: TicketInterface) => {
     dispatch(patchTicket(ticketChanged));
+    toast.success(`Ticket updated: ${ticketChanged.client}`);
   };
 
   const createTicket = (newTicket: TicketInterface) => {
     dispatch(postTicket(newTicket));
+    toast.success(`New ticket created: ${newTicket.client}`);
   };
 
   const removeTicket = (id?: string) => {
     dispatch(deleteTicket(id));
+    toast.success(`Ticket deleted`);
   }
 
   useEffect(() => {
@@ -63,6 +68,16 @@ function App() {
       ) : (
         <></>
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        theme="colored"
+        pauseOnHover
+        hideProgressBar
+        newestOnTop
+        draggable={false}
+        transition={Slide}
+      />
     </>
   );
 }
