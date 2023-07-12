@@ -36,6 +36,15 @@ export const postTicket: any = createAsyncThunk("tickets/postTicket", async (new
   }
 });
 
+export const deleteTicket: any = createAsyncThunk("tickets/deleteTicket", async (id: string) => {
+  try {
+    const response = await axios.delete(`${API_URL}/tickets/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleteTicket -> ', error);
+  }
+});
+
 export const ticketsSlice = createSlice({
   name: "tickets",
   initialState: {
@@ -58,6 +67,9 @@ export const ticketsSlice = createSlice({
       })
       .addCase(postTicket.fulfilled, (state, action) => {
         state.tickets = state.tickets.concat(action.payload);
+      })
+      .addCase(deleteTicket.fulfilled, (state: any, action) => {
+        state.tickets = state.tickets.filter((ticket: any) => ticket._id !== action.payload._id)
       });
   },
 });

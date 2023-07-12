@@ -16,6 +16,7 @@ type BodyComponentProps = {
   tickets: TicketInterface[];
   updateTicket: (ticketChanged: TicketInterface) => void;
   createTicket: (newTicket: TicketInterface) => void;
+  removeTicket: (id?: string) => void;
   onClickCreateNew: () => void;
 };
 
@@ -23,6 +24,7 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
   tickets,
   updateTicket,
   createTicket,
+  removeTicket,
   onClickCreateNew,
 }) => {
   const getRandomNumber = (min: number, max: number) => {
@@ -50,7 +52,11 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
           <span>Timeline</span>
         </div>
       </div>
-      <ListComponent tickets={tickets} updateTicket={updateTicket} />
+      <ListComponent
+        tickets={tickets}
+        updateTicket={updateTicket}
+        removeTicket={removeTicket}
+      />
       <div className="sts-row">
         <ButtonComponent
           text="Create Randomly"

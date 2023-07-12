@@ -5,6 +5,7 @@ import {
   getTickets,
   patchTicket,
   postTicket,
+  deleteTicket,
   selectAllTickets,
 } from "./features/tickets/ticketsSlice";
 
@@ -32,6 +33,10 @@ function App() {
     dispatch(postTicket(newTicket));
   };
 
+  const removeTicket = (id?: string) => {
+    dispatch(deleteTicket(id));
+  }
+
   useEffect(() => {
     fetchTickets();
   }, []);
@@ -47,6 +52,7 @@ function App() {
         tickets={tickets}
         updateTicket={updateTicket}
         createTicket={createTicket}
+        removeTicket={removeTicket}
         onClickCreateNew={changeModalStatus}
       />
       {showModal ? (

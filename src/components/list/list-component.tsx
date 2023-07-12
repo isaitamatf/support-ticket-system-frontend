@@ -6,9 +6,10 @@ import { TicketComponent } from "..";
 type Props = {
   tickets: TicketInterface[];
   updateTicket: (ticketChanged: TicketInterface) => void;
+  removeTicket: (id?: string) => void;
 };
 
-export const ListComponent: React.FC<Props> = ({ tickets, updateTicket }) => {
+export const ListComponent: React.FC<Props> = ({ tickets, updateTicket, removeTicket }) => {
   const showTickets = () => {
     return tickets.map((ticket: TicketInterface, index: number) => {
       const { _id } = ticket;
@@ -18,6 +19,7 @@ export const ListComponent: React.FC<Props> = ({ tickets, updateTicket }) => {
           index={index}
           key={_id}
           updateTicket={updateTicket}
+          removeTicket={removeTicket}
         />
       ) : (
         <></>

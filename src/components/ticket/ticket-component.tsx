@@ -1,5 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { TicketInterface } from "../../interfaces";
 import { ToogleSwitchComponent, StatusComponent } from "..";
@@ -8,14 +10,16 @@ type Props = {
   ticket: TicketInterface;
   index: number;
   updateTicket: (ticketChanged: TicketInterface) => void;
+  removeTicket: (id?: string) => void;
 };
 
 export const TicketComponent: React.FC<Props> = ({
   ticket,
   index,
   updateTicket,
+  removeTicket
 }) => {
-  const { client, issue, status, deadline } = ticket;
+  const { _id, client, issue, status, deadline } = ticket;
 
   const checkStatusColor = () => {
     let statusColor: "green" | "yellow" | "red" = "red";
@@ -35,6 +39,10 @@ export const TicketComponent: React.FC<Props> = ({
     updateTicket(ticketChanged);
   };
 
+  const onClickRemoveTicket = () => {
+    removeTicket(_id);
+  }
+
   return ticket ? (
     <div className="sts-ticket">
       <div className="sts-ticket-header">
@@ -47,6 +55,7 @@ export const TicketComponent: React.FC<Props> = ({
           <span>{dayjs(deadline).format("DD/MM/YYYY")}</span>
         </div>
         <div className="sts-ticket-header-element">
+          <FontAwesomeIcon icon={faClose} onClick={onClickRemoveTicket} />
           <ToogleSwitchComponent
             status={status}
             onChangeToggleSwitch={onChangeToggleSwitch}
