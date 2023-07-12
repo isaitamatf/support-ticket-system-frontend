@@ -11,20 +11,20 @@
   }
 }
 .sts-status.green {
-  border-color: #01C853;
+  border-color: #01c853;
   > .sts-status-circle {
-    background-color: #01C853;
+    background-color: #01c853;
   }
 }
 .sts-status.yellow {
-  border-color: #FEC107;
-  >.sts-status-circle {
-    background-color: #FEC107;
+  border-color: #fec107;
+  > .sts-status-circle {
+    background-color: #fec107;
   }
 }
 .sts-status.red {
-  border-color: #D74315;
-  >.sts-status-circle {
-    background-color: #D74315;
+  border-color: #d74315;
+  > .sts-status-circle {
+    background-color: #d74315;
   }
 }

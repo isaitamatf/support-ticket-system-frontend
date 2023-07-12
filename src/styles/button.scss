@@ -3,8 +3,8 @@
 .sts-button {
   margin: 0 6px;
   > button {
-    background-color: #3B8EDE;
-    color: #FFF;
+    background-color: #3b8ede;
+    color: #fff;
     border: 0;
     padding: 8px 16px;
     border-radius: 8px;
@@ -14,10 +14,10 @@
     }
   }
   > :not(button:disabled):hover {
-    background-color: darken(#3B8EDE, 20%);
+    background-color: darken(#3b8ede, 20%);
   }
-  >button:disabled,
-  >button[disabled] {
+  > button:disabled,
+  > button[disabled] {
     opacity: 0.5;
     cursor: default;
   }
