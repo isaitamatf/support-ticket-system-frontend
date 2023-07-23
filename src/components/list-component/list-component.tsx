@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { TicketInterface } from "../../interfaces";
 import { TicketComponent } from "..";
@@ -16,7 +17,7 @@ type Props = {
  * @param {Function} removeTicket
  * @returns {JSX}
  */
-export const ListComponent: React.FC<Props> = ({
+const ListComponent: React.FC<Props> = ({
   tickets,
   updateTicket,
   removeTicket,
@@ -52,3 +53,17 @@ export const ListComponent: React.FC<Props> = ({
     </div>
   );
 };
+
+ListComponent.propTypes = {
+  tickets: PropTypes.array.isRequired,
+  updateTicket: PropTypes.func.isRequired,
+  removeTicket: PropTypes.func.isRequired,
+};
+
+ListComponent.defaultProps = {
+  tickets: [],
+  updateTicket: (ticketChanged: TicketInterface) => {},
+  removeTicket: (id?: string) => {},
+};
+
+export { ListComponent };

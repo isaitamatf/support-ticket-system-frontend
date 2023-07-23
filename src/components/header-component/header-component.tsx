@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.svg";
  * @description Header Component
  * @returns {JSX}
  */
-export const HeaderComponent: React.FC = () => {
+const HeaderComponent: React.FC = () => {
   return (
     <div className="sts-header" data-testid="sts-header">
       <div className="sts-header-img">
@@ -16,3 +16,5 @@ export const HeaderComponent: React.FC = () => {
     </div>
   );
 };
+
+export { HeaderComponent };

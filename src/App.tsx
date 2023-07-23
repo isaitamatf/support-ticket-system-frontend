@@ -19,7 +19,7 @@ import { TicketInterface } from "./interfaces";
  * @description App component
  * @returns {JSX}
  */
-function App() {
+export const App = () => {
   const dispatch = useDispatch();
   // State variable where we store the tickets
   const tickets = useSelector(selectAllTickets);
@@ -93,5 +93,3 @@ function App() {
     </>
   );
 }
-
-export default App;

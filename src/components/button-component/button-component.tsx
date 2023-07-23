@@ -1,4 +1,5 @@
 import React, { MouseEventHandler } from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,7 +18,7 @@ type Props = {
  * @param {boolean} disabled
  * @returns {JSX}
  */
-export const ButtonComponent: React.FC<Props> = ({
+const ButtonComponent: React.FC<Props> = ({
   text,
   onClick,
   showIcon,
@@ -36,3 +37,19 @@ export const ButtonComponent: React.FC<Props> = ({
     </div>
   );
 };
+
+ButtonComponent.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  showIcon: PropTypes.bool,
+  disabled: PropTypes.bool,
+};
+
+ButtonComponent.defaultProps = {
+  text: "",
+  onClick: () => {},
+  showIcon: false,
+  disabled: false,
+};
+
+export { ButtonComponent };

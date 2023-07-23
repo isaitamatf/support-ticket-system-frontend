@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
 
-import App from "./App";
+import { App } from "./App";
 import { MOCK_STORE } from "./constants";
 
 describe("App Component", () => {

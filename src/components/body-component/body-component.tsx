@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { debounce } from "lodash";
 
-import { ListComponent, ButtonComponent } from "../../components";
+import { ListComponent, ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 import {
   RANDOM_CLIENTS,
@@ -29,7 +30,7 @@ type BodyComponentProps = {
  * @param {Function} onClickCreateNew
  * @returns {JSX}
  */
-export const BodyComponent: React.FC<BodyComponentProps> = ({
+const BodyComponent: React.FC<BodyComponentProps> = ({
   tickets,
   updateTicket,
   createTicket,
@@ -88,3 +89,21 @@ export const BodyComponent: React.FC<BodyComponentProps> = ({
     </div>
   );
 };
+
+BodyComponent.propTypes = {
+  tickets: PropTypes.array.isRequired,
+  updateTicket: PropTypes.func.isRequired,
+  createTicket: PropTypes.func.isRequired,
+  removeTicket: PropTypes.func.isRequired,
+  onClickCreateNew: PropTypes.func.isRequired,
+};
+
+BodyComponent.defaultProps = {
+  tickets: [],
+  updateTicket: (ticketChanged: TicketInterface) => {},
+  createTicket: (newTicket: TicketInterface) => {},
+  removeTicket: (id?: string) => {},
+  onClickCreateNew: () => {},
+};
+
+export { BodyComponent };

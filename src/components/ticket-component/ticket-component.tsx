@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+import PropTypes from "prop-types";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -21,7 +22,7 @@ type Props = {
  * @param {Function} removeTicket
  * @returns {JSX}
  */
-export const TicketComponent: React.FC<Props> = ({
+const TicketComponent: React.FC<Props> = ({
   ticket,
   index,
   updateTicket,
@@ -84,3 +85,18 @@ export const TicketComponent: React.FC<Props> = ({
     <></>
   );
 };
+
+TicketComponent.propTypes = {
+  //ticket: PropTypes.object,
+  index: PropTypes.number.isRequired,
+  updateTicket: PropTypes.func.isRequired,
+  removeTicket: PropTypes.func.isRequired,
+};
+
+TicketComponent.defaultProps = {
+  index: 0,
+  updateTicket: (ticketChanged: TicketInterface) => {},
+  removeTicket: (id?: string) => {},
+};
+
+export { TicketComponent };

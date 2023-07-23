@@ -1,8 +1,8 @@
-export { BodyComponent } from "./body/body-component";
-export { ButtonComponent } from "./button/button-component";
-export { HeaderComponent } from "./header/header-component";
-export { ListComponent } from "./list/list-component";
-export { ModalComponent } from "./modal/modal-component";
-export { StatusComponent } from "./status/status-component";
-export { TicketComponent } from "./ticket/ticket-component";
-export { ToogleSwitchComponent } from "./toggleSwitch/toggle-switch-component";
+export { BodyComponent } from "./body-component/body-component";
+export { ButtonComponent } from "./button-component/button-component";
+export { HeaderComponent } from "./header-component/header-component";
+export { ListComponent } from "./list-component/list-component";
+export { ModalComponent } from "./modal-component/modal-component";
+export { StatusComponent } from "./status-component/status-component";
+export { TicketComponent } from "./ticket-component/ticket-component";
+export { ToogleSwitchComponent } from "./toggle-switch-component/toggle-switch-component";

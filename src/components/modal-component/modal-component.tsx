@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 
-import { ButtonComponent } from "../../components";
+import { ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 import { DATE_FORMAT } from "../../constants";
 
@@ -18,7 +19,7 @@ type Props = {
  * @param {Function} createTicket
  * @returns {JSX}
  */
-export const ModalComponent: React.FC<Props> = ({
+const ModalComponent: React.FC<Props> = ({
   onClickButtonClose,
   createTicket,
 }) => {
@@ -127,3 +128,15 @@ export const ModalComponent: React.FC<Props> = ({
     </div>
   );
 };
+
+ModalComponent.propTypes = {
+  onClickButtonClose: PropTypes.func.isRequired,
+  createTicket: PropTypes.func.isRequired,
+};
+
+ModalComponent.defaultProps = {
+  onClickButtonClose: () => {},
+  createTicket: (newTicket: TicketInterface) => {},
+};
+
+export { ModalComponent };
