@@ -8,7 +8,7 @@ import { ButtonComponent } from "..";
 import { TicketInterface } from "../../interfaces";
 import { DATE_FORMAT } from "../../constants";
 
-type Props = {
+type ModalComponentProps = {
   onClickButtonClose: () => void;
   createTicket: (newTicket: TicketInterface) => void;
 };
@@ -19,7 +19,7 @@ type Props = {
  * @param {Function} createTicket
  * @returns {JSX}
  */
-const ModalComponent: React.FC<Props> = ({
+const ModalComponent: React.FC<ModalComponentProps> = ({
   onClickButtonClose,
   createTicket,
 }) => {

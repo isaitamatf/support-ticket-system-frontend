@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { TicketInterface } from "../../interfaces";
 import { TicketComponent } from "..";
 
-type Props = {
+type ListComponentProps = {
   tickets: TicketInterface[];
   updateTicket: (ticketChanged: TicketInterface) => void;
   removeTicket: (id?: string) => void;
@@ -17,7 +17,7 @@ type Props = {
  * @param {Function} removeTicket
  * @returns {JSX}
  */
-const ListComponent: React.FC<Props> = ({
+const ListComponent: React.FC<ListComponentProps> = ({
   tickets,
   updateTicket,
   removeTicket,

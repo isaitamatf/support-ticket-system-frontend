@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-type Props = {
+type ButtonComponentProps = {
   text: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   showIcon?: boolean;
@@ -18,7 +18,7 @@ type Props = {
  * @param {boolean} disabled
  * @returns {JSX}
  */
-const ButtonComponent: React.FC<Props> = ({
+const ButtonComponent: React.FC<ButtonComponentProps> = ({
   text,
   onClick,
   showIcon,

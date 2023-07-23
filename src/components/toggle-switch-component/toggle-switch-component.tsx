@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-type Props = {
+type ToogleSwitchComponentProps = {
   status: "open" | "closed";
   onChangeToggleSwitch: () => void;
 };
@@ -12,7 +12,7 @@ type Props = {
  * @param {Function} onChangeToggleSwitch
  * @returns {JSX}
  */
-const ToogleSwitchComponent: React.FC<Props> = ({
+const ToogleSwitchComponent: React.FC<ToogleSwitchComponentProps> = ({
   status,
   onChangeToggleSwitch,
 }) => {

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TicketInterface } from "../../interfaces";
 import { ToogleSwitchComponent, StatusComponent } from "..";
 
-type Props = {
+type TicketComponentProps = {
   ticket: TicketInterface;
   index: number;
   updateTicket: (ticketChanged: TicketInterface) => void;
@@ -22,7 +22,7 @@ type Props = {
  * @param {Function} removeTicket
  * @returns {JSX}
  */
-const TicketComponent: React.FC<Props> = ({
+const TicketComponent: React.FC<TicketComponentProps> = ({
   ticket,
   index,
   updateTicket,

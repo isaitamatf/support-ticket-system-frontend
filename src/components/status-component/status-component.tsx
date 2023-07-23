@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-type Props = {
+type StatusComponentProps = {
   status: "green" | "yellow" | "red";
 };
 
@@ -10,7 +10,7 @@ type Props = {
  * @param {string} status
  * @returns {JSX}
  */
-const StatusComponent: React.FC<Props> = ({ status }) => {
+const StatusComponent: React.FC<StatusComponentProps> = ({ status }) => {
   return (
     <div className={`sts-status ${status}`} data-testid="sts-status">
       <div className="sts-status-circle" />
